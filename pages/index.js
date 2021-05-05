@@ -6,10 +6,19 @@ const [todo, setTodo] = useState('');
 const removeTodo = todo => {
   setTodos(todos.filter(t => t !== todo));
 };
+
+const handleClick =(e) => {
+  e.preventDefault(); //prevent form refresh
+  setTodos(todos => [...todos, todo] ); //updating the state
+  setTodo(todo => todo=""); //updating the state
+}
+
   return (
     <div> 
-      <input value={todo} onChange={(e) => setTodo(e.target.value)}/>
-      <button onClick={() => setTodos([...todos, todo])}>Add</button>
+      <form onSubmit={handleClick}>
+        <input value={todo} onChange={(e) => setTodo(e.target.value)}/>
+        <button>Add</button>
+      </form>
       {todos.map(todo => (
         <>
         <h1>{todo}</h1>
