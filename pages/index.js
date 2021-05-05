@@ -17,12 +17,14 @@ const handleClick =(e) => {
     <div> 
       <form onSubmit={handleClick}>
         <input value={todo} onChange={(e) => setTodo(e.target.value)}/>
-        <button>Add</button>
+        <button>Add</button>  
+        {/* <button onClick={() => setTodos([...todos, todo])}> Add </button>*/}
       </form>
       {todos.map(todo => (
         <>
         <h1>{todo}</h1>
-        <button onClick={() => removeTodo(todo)}>remove</button>
+        <button onClick={() => removeTodo(todo)}>remove</button> 
+       
         </>
       ))}
     </div>
