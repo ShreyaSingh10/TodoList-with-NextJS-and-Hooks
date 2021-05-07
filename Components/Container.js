@@ -23,7 +23,10 @@ const handleClick =(e) => {
       </form>
       {todos.map(todo => (
         <>
-      <Link href={'/details'}>  
+      <Link href={{
+        pathname: "/details",
+        query: { name: todo },
+      }}>  
         <h1>{todo}</h1>
         </Link>
         <button onClick={() => removeTodo(todo)}>remove</button> 
